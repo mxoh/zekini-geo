@@ -1,5 +1,4 @@
 import React from 'react';
-import Test from './test';
 import MapContainer from './MapClass';
 
 function App() {
