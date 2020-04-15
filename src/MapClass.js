@@ -8,9 +8,11 @@ class MapContainer extends React.Component{
     this.state = {
       locations:[
         {lat:-26.241343, lng:27.928181},
-        {latitude:-26.241343, longitude:27.928181},
-        {latitude:-26.241343, longitude:27.928181},
-        {latitude:-26.241343, longitude:27.928181}
+        {latitude: -26.321, longitude: 27.851},
+        {latitude: -26.116, longitude: 28.003},
+        {latitude: -26.109, longitude: 28.054},
+        {latitude: -26.051, longitude: 28.021},
+        {latitude: -26.285, longitude: 27.958}
       ]
     }
   }
@@ -30,19 +32,18 @@ class MapContainer extends React.Component{
       width: '100%',
       height: '100%'
     };
-    const mylocation = {
-      lat:-26.241343,
-      lng:27.928181
-    }
 
     return (
       <Map
         google={this.props.google}
-        zoom={8}
+        zoom={10}
         style={mapStyles}
-        initialCenter={mylocation}
+        initialCenter={{
+          lat:-26.241,
+          lng:27.928
+        }}
       >
-        {this.displayMaker}
+        {this.displayMaker()}
       </Map>
     )
   }

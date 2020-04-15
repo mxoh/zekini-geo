@@ -1,25 +1,29 @@
 import React,{ Component } from 'react';
-import GoogleMapReact from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
 class MapContainer extends Component{
     render() {
+        const mapStyles = {
+            width: '100%',
+            height: '100%',
+          };
+          const mylocation = {
+            lat:-26.241343,
+            lng:27.928181
+          }
         return(
-            <section className="col-8 h-lg">
-                <GoogleMapReact
-                    bootstrapURLKeys={{
-                        key: '{}',
-                        libraries: ['places', 'directions']
-                    }}
-                    defaultZoom={11}
-                    defaultCenter={{lat:-26.241343, lng:27.928181}}
-                    yesIWantToUseGoogleMapApiInternals={true}
-                    onGoogleApiLoaded={({map, maps}) => this.apiHasLoaded(map, maps)}
-                >
-                
-                </GoogleMapReact>
-            </section>
+            <Map
+                google={this.props.google}
+                zoom={13}
+                style={mapStyles}
+                initialCenter={mylocation}
+            >
+                <Marker position={mylocation} />
+            </Map>
         )
     }
 }
 
-export default MapContainer;
+export default GoogleApiWrapper({
+    apiKey: 'AIzaSyCvKwQtNGQtHDXu6j1dqDxcfFhvHb32KYk'
+  })(MapContainer);
