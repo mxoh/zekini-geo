@@ -1,5 +1,6 @@
 import React,{ Component } from 'react';
 import MarkersOnMap from 'markers-on-map-react';
+require('dotenv').config();
 
 export class MapContainer extends Component{
     //SET MY GEOLOCATION ARRAY TO STATE
@@ -44,17 +45,18 @@ export class MapContainer extends Component{
 
     componentDidMount(){
         MarkersOnMap.Init({
-            googleApiKey: 'AIzaSyBUV6KcfZOEDTkTMi0OZ1PcVL7QQHCL8U4',
+            googleApiKey: process.env.API_KEY,
             googlePlacesApiEnabled: true,
             googlePlacesContentButton: 'Get Directions', 
             mapZoomControl: true,
+            mapStreetViewControl: false,
             mapWidth: '100%',
             mapHeight: '100vh',
             ...this.state //adding geolocation array
         })
         MarkersOnMap.Run('div#GoogleMap');
     }
-    
+
     render() {
         return(
             <div id='GoogleMap'></div>
