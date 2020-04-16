@@ -1,7 +1,7 @@
 import React from 'react';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
-class MapContainer extends React.Component{
+export class MapContainer extends React.Component{
   constructor(props){
     super(props)
 
@@ -23,6 +23,7 @@ class MapContainer extends React.Component{
         lat: location.latitude,
         lng: location.longitude
       }}
+      map={this.googleMap}
       onClick={() => console.log('You clicked me!')} />
     })
   }
@@ -47,8 +48,7 @@ class MapContainer extends React.Component{
       </Map>
     )
   }
-}
-
+};
 export default GoogleApiWrapper({
     apiKey: 'AIzaSyCvKwQtNGQtHDXu6j1dqDxcfFhvHb32KYk'
   })(MapContainer);

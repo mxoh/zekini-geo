@@ -1,7 +1,7 @@
 import React from 'react';
-//import MapContainer from './MapClass';
-import MapContainer from './components/MapContainer'
-//29006454
+import MapContainer from './MapClass';
+//import MapContainer from './components/MapContainer'
+
 function App() {
   return (
     <div className='container'>
