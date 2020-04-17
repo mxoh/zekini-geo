@@ -45,7 +45,7 @@ export class MapContainer extends Component{
 
     componentDidMount(){
         MarkersOnMap.Init({
-            googleApiKey: process.env.API_KEY,
+            googleApiKey: process.env.REACT_APP_API_KEY,
             googlePlacesApiEnabled: true,
             googlePlacesContentButton: 'Get Directions', 
             mapZoomControl: true,
